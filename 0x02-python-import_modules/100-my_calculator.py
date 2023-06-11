@@ -19,7 +19,6 @@ def calc(argv):
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
     else:
-
         if argv[2] == '+':
             print(f"{a} {argv[2]} {b} = {add(a, b)}")
         elif argv[2] == '-':
