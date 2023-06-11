@@ -12,4 +12,3 @@ if __name__ == "__main__":
         print(f"{argc} arguments:")
         for i in range(argc):
             print(f"{i + 1}: {sys.argv[i + 1]}")
-            # print("{:d}: {:s}".format(i, sys.argv[i]))
