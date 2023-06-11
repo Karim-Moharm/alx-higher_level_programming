@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import hidden_4
+    # import dirs_test
     for i in dir(hidden_4):
-        if i == "__":
+        if i[:2] == "__":
             continue
-        print(f"{i}")
+        print(i)
