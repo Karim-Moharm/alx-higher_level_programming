@@ -4,11 +4,11 @@ def best_score(a_dictionary):
         return None
 
     first_key = list(a_dictionary.keys())[0]
-    first_value = a_dictionary[first_key]
+    max_value = a_dictionary[first_key]
     max_key = str()
 
     for key, value in a_dictionary.items():
-        if value > first_value:
-            first_value = value
+        if value > max_value:
+            max_value = value
             max_key = key
     return max_key
