@@ -4,4 +4,4 @@ def raise_exception():
     """
     a function that raises a type exception.
     """
-    raise Exception("Error! Error! Error!")
+    raise TypeError("Error! Error! Error!")
