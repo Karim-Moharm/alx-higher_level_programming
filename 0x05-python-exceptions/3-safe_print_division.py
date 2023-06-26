@@ -4,9 +4,13 @@ def safe_print_division(a, b):
     """
     a function that divides 2 integers and prints the result.
     """
+    c = None
     try:
-        print("Inside result: {}".format(a / b))
-        return a / b
+        c = a // b
+
     except ZeroDivisionError:
-        print("Inside result: {}".format(None))
-        return None
+        pass
+
+    finally:
+        print("Inside result: {}".format(c))
+    return c
