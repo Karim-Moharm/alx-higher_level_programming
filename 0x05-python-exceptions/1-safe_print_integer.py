@@ -4,9 +4,7 @@ def safe_print_integer(value):
     a function that prints an integer onl
     """
     try:
-        if value is int:
-            print("{:d}".format(value))
-            return True
-    except:
+        print("{:d}".format(value))
+        return True
+    except ValueError:
         return False
-
