@@ -4,7 +4,7 @@
 
 class Square:
     """a class Square that define a square
-        
+
     Attributes:
         size: the size of the square
     """
@@ -14,12 +14,15 @@ class Square:
         Args:
             self: used as the instance of class
             size (int): size of the square (private attribute)
+
+        Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
         """
 
         if type(size) is not int:
-            raise TypeError ("size must be an integer")
+            raise TypeError("size must be an integer")
         elif size < 0:
-            raise ValueError ("size must be >= 0")
+            raise ValueError("size must be >= 0")
         else:
             self.__size = size
-
