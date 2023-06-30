@@ -61,12 +61,12 @@ class Square:
         if self.__size == 0:
             print()
         else:
-            for line in range(self.__position[1]):
+            for line in range(self.position[1]):
                 print()
 
-            for h in range(self.__size):
-                for space in range(self.__position[0]):
+            for h in range(self.size):
+                for space in range(self.position[0]):
                     print(" ", end="")
-                for w in range(self.__size):
+                for w in range(self.size):
                     print("#", end="")
                 print()
