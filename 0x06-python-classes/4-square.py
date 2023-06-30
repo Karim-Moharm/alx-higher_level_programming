@@ -10,14 +10,33 @@ class Square:
     """
 
     def __init__(self, size=0):
+        """The __init__ special method
+
+        Args:
+            size (int): the size of square
+        """
         self.size = size
 
     @property
     def size(self):
+        """property method used as getter
+
+        Returns:
+            the size of square
+        """
         return self.__size
 
     @size.setter
     def size(self, value):
+        """set the value of size and check for error
+
+        Args:
+            value (int): value  square size
+
+        Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
+        """
         if type(value) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -26,4 +45,9 @@ class Square:
             self.__size = value
 
     def area(self):
+        """Calculates the Area of square
+
+        Returns:
+            area of square
+        """
         return self.__size ** 2
