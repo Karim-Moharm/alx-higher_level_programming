@@ -30,6 +30,15 @@ class Square:
 
     @size.setter
     def size(self, value):
+        """set the value of size and check for error
+
+        Args:
+            value (int): value  square size
+
+        Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
+        """
         if type(value) is not int:
             raise TypeError("size must be an integer")
         elif value < 0:
@@ -39,10 +48,24 @@ class Square:
 
     @property
     def position(self):
+        """retrieve position and make it private
+
+        Returns:
+            position of the square
+        """
         return self.__position
 
     @position.setter
     def position(self, value):
+        """set private position attribute
+
+        Args:
+            value (int): value of position and for checkign error
+
+        Raises:
+            TypeError: if size is not an integer
+            ValueError: if size is less than 0
+        """
         if (type(value) != tuple or type(value[0]) != int or
                 type(value[1]) != int or len(value) != 2 or
                 value[0] < 0 or value[1] < 0):
@@ -58,6 +81,7 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
+        """ print the square using # char"""
         if self.__size == 0:
             print()
         else:
