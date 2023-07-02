@@ -35,6 +35,7 @@ TypeError: a must be an integer
 
 'Test #6: one is None'
 >>> add_integer(1, None)
+Traceback (most recent call last):
 ...
 TypeError: b must be an integer
 
@@ -44,11 +45,13 @@ TypeError: b must be an integer
 
 'Test #8: a is string'
 >>> add_integer("str", 7)
+Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
 'Test #9: b is string'
 >>> add_integer(124, "str")
+Traceback (most recent call last):
 ...
 TypeError: b must be an integer
 
@@ -72,6 +75,7 @@ TypeError: a must be an integer
 
 'Test #13: b is a boolean'
 >>> add_integer(1, False)
+Traceback (most recent call last):
 ...
 TypeError: b must be an integer
 
