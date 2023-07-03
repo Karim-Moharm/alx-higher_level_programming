@@ -1,0 +1,107 @@
+The 2-matrix_divided.py Module Test Cases
+=========================================
+
+``matrix_divide`` Function
+-----------------------------------------
+
+'Importing the Module'
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+'Test cases starts'
+
+'Test #1: the matrix is positive'
+>>> matrix_divided([[2, 4, 6, 9], [8, 5, 4, 12]], 3)
+[[0.67, 1.33, 2.0, 3.0], [2.67, 1.67, 1.33, 4.0]]
+
+'Test #2: The matrix is positive and negative'
+>>> matrix_divided([[-2, -4, 6, -9], [8, -5, 4, -12]], 3)
+[[-0.67, -1.33, 2.0, -3.0], [2.67, -1.67, 1.33, -4.0]]
+
+'Test #3: div is a float number'
+>>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], 4.5)
+[[14.22, 17.22, 22.22], [17.33, 0.52, 177.78]]
+
+
+'Test #4: divide by negative number'
+>>> matrix_divided([[-2, -4, 6, -9], [8, -5, 4, -12]], -3)
+[[0.67, 1.33, -2.0, 3.0], [-2.67, 1.67, -1.33, 4.0]]
+
+'Test #5: the matrix values are int and float'
+>>> matrix_divided([[-2.78, -4.55, 6.5, -9], [8, -5.2, 4, -12.5]], -3)
+[[0.93, 1.52, -2.17, 3.0], [-2.67, 1.73, -1.33, 4.17]]
+
+'Test #6: different row size'
+>>> matrix_divided([[2, 4, 6, 9], [8, 5, 12]], 3)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+'Test #7: large matrix numbers'
+>>> matrix_divided([[100000000000, 20000000000], [400000000000, 500000000000]], 2)
+[[50000000000.0, 10000000000.0], [200000000000.0, 250000000000.0]]
+
+'Test #8: div is from str type'
+>>> matrix_divided([[45, 77.47, 78], [78, 2.32, 0.27]], '2')
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+'Test #9: division by zero'
+>>> matrix_divided([[45, 77.47, 78], [78, 2.32, 0.27]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+'Test #10: one element in the matrix are from type bool'
+>>> matrix_divided([[45, 77.47, 78], [78, 2.32, True]], 8)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'Test #11: one element in the matrix are from type str'
+>>> matrix_divided([[45, 77.47, "string"], [78, 2.32, 800]], 8)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'Test #12: the matrix is (list of tuple and tuple)'
+>>> matrix_divided([(64, 77.47, 100), (78, 2.32, 800)], 8)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'Test #13: the matrix is (list of list and tuple)'
+>>> matrix_divided([[64, 77.47, 100], (78, 2.32, 800)], 8)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+'Test #14: division by list (div is a list)'
+>>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], [8, 4])
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+'Test #15: div is a one element list'
+>>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], [8])
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+'Test #16: div is a number in parentheses'
+>>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], (8))
+[[8.0, 9.68, 12.5], [9.75, 0.29, 100.0]]
+
+'Test #17: div is a tuple of one number'
+>>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], (8,))
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+'Test #18: div from type bool'
+>>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], True)
+...
+TypeError: div must be a number
+
+
+'Test cases ends'
