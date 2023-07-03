@@ -32,14 +32,14 @@ def matrix_divided(matrix, div):
     for row in matrix:
         new_list = []
         if type(row) is not list:
-             raise TypeError("matrix must be a matrix (list of lists)\
-                     of integers/floats")
+            raise TypeError("matrix must be a matrix (list of lists)\
+                    of integers/floats")
 
         if len(row) == len(matrix[0]):
             pass
         else:
             raise TypeError("Each row of the matrix must have the same size")
-        
+
         for elem in range(len(row)):
             if (type(row[elem]) not in [int, float]):
                 raise TypeError("matrix must be a matrix (list of lists)\
@@ -48,4 +48,3 @@ def matrix_divided(matrix, div):
         new_matrix.append(new_list)
 
     return new_matrix
-
