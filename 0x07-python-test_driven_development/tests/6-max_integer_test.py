@@ -42,3 +42,8 @@ class TestMaxInteger(unittest.TestCase):
         """
         test_list = [44, 3, "str", 78.88]
         self.assertRaises(TypeError, max_integer, test_list)
+
+    def test_one_element(self):
+        """in case only one element in the list
+        """
+        self.assertEqual(max_integer([4]), 4)
