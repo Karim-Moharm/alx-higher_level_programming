@@ -3,9 +3,10 @@ The 5-text_indentation.py Module Test Cases
 
 ``text_indentation`` Function
 -----------------------------------------
-''
+''Importing the Module''
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
+'Test #1: Normal string'
 >>> text_indentation("This line contains multiple punctuations. Can you handle it? Let's find out: Here we go.")
 This line contains multiple punctuations.
 <BLANKLINE>
@@ -16,35 +17,37 @@ Let's find out:
 Here we go.
 <BLANKLINE>
 
+'Test #2: normal string'
 >>> text_indentation("444.")
 444.
 <BLANKLINE>
+
+'Test #3: the text is number'
 >>> text_indentation(444)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/root/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 19, in text_indentation
-    raise TypeError("text must be a string")
+...
 TypeError: text must be a string
+
+'Test #4: the text is bool'
 >>> text_indentation(False)
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/root/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 19, in text_indentation
-    raise TypeError("text must be a string")
+...
 TypeError: text must be a string
+
+'Test #6: text is a list of string'
 >>> text_indentation(["hello", "python"])
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/root/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 19, in text_indentation
-    raise TypeError("text must be a string")
+...
 TypeError: text must be a string
+
+'Test #7: text is a yuple of strings'
 >>> text_indentation(("hello", "python"))
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "/root/alx-higher_level_programming/0x07-python-test_driven_development/5-text_indentation.py", line 19, in text_indentation
-    raise TypeError("text must be a string")
+...
 TypeError: text must be a string
+
+'Test #8: No text'
 >>> text_indentation()
 Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
+...
 TypeError: text_indentation() missing 1 required positional argument: 'text'
-
