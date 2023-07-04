@@ -100,8 +100,8 @@ TypeError: div must be a number
 
 'Test #18: div from type bool'
 >>> matrix_divided([[64, 77.47, 100], [78, 2.32, 800]], True)
+Traceback (most recent call last):
 ...
 TypeError: div must be a number
-
 
 'Test cases ends'
