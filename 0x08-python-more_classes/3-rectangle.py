@@ -58,5 +58,5 @@ class Rectangle:
             for w in range(self.__width):
                 char += '#'
             if h < (self.__height - 1):
-                    char += '\n'
+                char += '\n'
         return char
