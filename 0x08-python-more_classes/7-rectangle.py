@@ -10,8 +10,8 @@ class Rectangle:
     Attributes:
         width: width of the rectangel (private attr)
         height: height of the rectangel (private attr)
-        number_of_instances: number of instances created (class Attribute)
-        print_symbol: Used as symbol for string representation (class Attribute)
+        number_of_instances: number of instances created (class atrr)
+        print_symbol: Used as symbol for string representation (class attr)
     """
     number_of_instances = 0
     print_symbol = '#'
