@@ -28,17 +28,17 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([]), None)
 
     def test_max_in_last(self):
-        """in case max integer last element in the list
+        """in case the max integer is the last element in the list
         """
         self.assertEqual(max_integer([77, 5, 8, 997]), 997)
 
     def test_equal_element(self):
-        """in case all element in list are equal
+        """in case all element in the list are equal
         """
         self.assertEqual(max_integer([5, 5, 5, 5]), 5)
 
     def test_string_element(self):
-        """in case the one of the element was a sring
+        """in case one of the element was a sring
         """
         test_list = [44, 3, "str", 78.88]
         self.assertRaises(TypeError, max_integer, test_list)
