@@ -14,7 +14,7 @@ def matrix_divided(matrix, div):
 
     Raises:
         TypeError: if element in matrix is not int or float
-            rows in matrix not hving the same size
+            rows in matrix not having the same size
             div in not int or float
         ZeroDivisionError: if div is 0
 
