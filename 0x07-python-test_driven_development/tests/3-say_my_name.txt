@@ -1,0 +1,66 @@
+The 3-say_my_name.py Module Test Cases
+=========================================
+
+``say_my_name`` Function
+-----------------------------------------
+
+'Importing the Module'
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+'Test #1: Normal string names'
+>>> say_my_name("karim", "moharm")
+My name is karim moharm
+
+'Test #2: last_name is missing'
+>>> say_my_name("karim")
+My name is karim 
+
+'Test #3: last_name is missing'
+>>> say_my_name("karim", )
+My name is karim 
+
+'Test #4: last_name is missing'
+>>> say_my_name("300", "")
+My name is 300 
+
+'Test #5: test with digit in last_name'
+>>> say_my_name("MJ", 300)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+'Test #6: test with digit in first_name'
+>>> say_my_name(300, "MJ")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+'Test #7: test with digit in first_name and last_name'
+>>> say_my_name(300, 11)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+'Test #8: test with list of strings in first_name'
+>>> say_my_name(["waltr", "white"], "hisenberg")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+'Test #9: three arguments are passed instead of two'
+>>> say_my_name("yeah", "mr", "white")
+Traceback (most recent call last):
+...
+TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+'Test #10: No arguments are passed'
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+'Test #11: test with boolean'
+>>> say_my_name(True, False)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string

@@ -9,7 +9,7 @@ def say_my_name(first_name, last_name=""):
 
     Args:
         first_name (str): first name to print
-        last_name (str): last name to print
+        last_name (str): last name to print (optional)
 
     Raises:
         TypeError: if the names are not string
