@@ -10,7 +10,7 @@ class TestMaxInteger(unittest.TestCase):
         """in case normal integer number
         """
         self.assertEqual(max_integer([12, 44, 7, 8, 5]), 44)
-    
+
     def test_pos_and_neg_numbers(self):
         """in case the numbers in list are positive
             and negative
