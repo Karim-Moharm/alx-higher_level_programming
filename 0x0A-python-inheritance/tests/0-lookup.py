@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module have a function that return a list of attributes and 
+Module have a function that return a list of attributes and
 method of an object
 """
 
