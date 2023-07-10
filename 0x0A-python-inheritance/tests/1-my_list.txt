@@ -74,3 +74,34 @@ TypeError: print_sorted() takes 1 positional argument but 2 were given
 >>> my_list.append(False)
 >>> my_list.print_sorted()
 [False, False, True, True, True]
+
+>>> my_list = MyList()
+>>> my_list.append('44')
+>>> my_list.append(44)
+>>> my_list.append(11.78)
+>>> my_list.append(0)
+>>> my_list.append("hello")
+>>> my_list.append(True)
+>>> my_list.append((11,))
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'int' and 'str'
+
+>>> my_list = MyList()
+>>> my_list.append(18.22)
+>>> my_list.append(7.8)
+>>> my_list.append(0.22)
+>>> my_list.append(23.00)
+>>> my_list.append(2.4)
+>>> my_list.print_sorted()
+[0.22, 2.4, 7.8, 18.22, 23.0]
+
+>>> my_list = MyList()
+>>> my_list.append(-88)
+>>> my_list.append(-2)
+>>> my_list.append(-17)
+>>> my_list.append(-33)
+>>> my_list.append(-1)
+>>> my_list.print_sorted()
+[-88, -33, -17, -2, -1]
