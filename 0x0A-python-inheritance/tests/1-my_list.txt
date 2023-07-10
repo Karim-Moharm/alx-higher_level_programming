@@ -1,0 +1,76 @@
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList()
+>>> my_list.append(12)
+>>> my_list.append(2)
+>>> my_list.append(20)
+>>> my_list.append(27)
+>>> my_list.append(7)
+>>> my_list.append(77)
+>>> my_list.print_sorted()
+[2, 7, 12, 20, 27, 77]
+
+>>> my_list = MyList()
+>>> my_list.append(4)
+>>> my_list.append(0)
+>>> my_list.print_sorted()
+[0, 4]
+
+>>> my_list = MyList()
+>>> my_list.append(44)
+>>> my_list.print_sorted()
+[44]
+
+>>> my_list = MyList()
+>>> my_list.print_sorted(44, 7)
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 3 were given
+
+>>> my_list.print_sorted(44)
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+>>> my_list.print_sorted()
+[]
+
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> my_list.print_sorted()
+[1, 2, 3, 5]
+
+>>> my_list = MyList()
+>>> my_list.append([11, 4, 7, 8])
+>>> my_list.append([4, 9, 3, 1])
+>>> my_list.append([9, 32, 0, 27])
+>>> my_list.print_sorted()
+[[4, 9, 3, 1], [9, 32, 0, 27], [11, 4, 7, 8]]
+
+>>> my_list.print_sorted([11, 78, 99, 12, 1, 3])
+Traceback (most recent call last):
+...
+TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+>>> my_list = MyList()
+>>> my_list.append("karim")
+>>> my_list.append("john")
+>>> my_list.append("micheal")
+>>> my_list.append("mohammed")
+>>> my_list.append("mahmmoud")
+>>> my_list.append("zedan")
+>>> my_list.append("derek")
+>>> my_list.print_sorted()
+['derek', 'john', 'karim', 'mahmmoud', 'micheal', 'mohammed', 'zedan']
+
+>>> my_list = MyList()
+>>> my_list.append(True)
+>>> my_list.append(True)
+>>> my_list.append(False)
+>>> my_list.append(True)
+>>> my_list.append(False)
+>>> my_list.print_sorted()
+[False, False, True, True, True]
