@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module having a function that checks if the object is an instance of a class 
+Module having a function that checks if the object is an instance of a class
 that inherited (directly or indirectly) from the specified class.
 """
 
