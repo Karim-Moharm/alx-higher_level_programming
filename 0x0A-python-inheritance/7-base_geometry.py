@@ -16,6 +16,10 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """instance method that validates integer input
+
+        Raises:
+            TypeError: if value is not an integer
+            ValueError: if value is less or equal to 0
         """
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(name))
