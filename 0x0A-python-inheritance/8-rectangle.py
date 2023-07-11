@@ -3,7 +3,10 @@
 Rectangle class Module
 """
 
+
 form 7-base_geometry import BaseGeometry
+
+
 class Rectangle(BaseGeometry):
     """
     Rectangle subclass that inherit from BaseGeometry
