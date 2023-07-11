@@ -8,10 +8,13 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-    """Square class"""
+    """
+    Square sub-class
+    """
     def __init__(self, size):
         """The __init__ special method
-        Args:
+        
+        Attributes:
             size (int): size of square
         """
         super().__init__(size, size)
