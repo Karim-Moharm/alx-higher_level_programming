@@ -6,7 +6,7 @@ creating area function for the class
 
 class BaseGeometry:
     """BaseGeometry Class"""
-    def  area(self):
+    def area(self):
         """instance method for calculating area
 
         Raises:
