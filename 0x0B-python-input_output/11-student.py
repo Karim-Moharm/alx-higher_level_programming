@@ -29,5 +29,5 @@ class Student:
         """replaces all attributes of the Student instance
         with json format
         """
-        for key, value in json.item():
+        for key, value in json.items():
             setattr(self, key, value)
