@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Module for returning an object from json file
+Module for returning an object from json format
 """
 
 
