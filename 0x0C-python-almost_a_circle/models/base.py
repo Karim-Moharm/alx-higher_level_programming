@@ -11,6 +11,7 @@ class Base:
          __nb_objects: private class attribute
     """
     __nb_objects = 0
+
     def __init__(self, id=None):
         """init special method that works as constructor
         Attrs:
