@@ -17,7 +17,7 @@ class Base:
         Attrs:
             id (int): integer attribute for id
         """
-        if id in not None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
