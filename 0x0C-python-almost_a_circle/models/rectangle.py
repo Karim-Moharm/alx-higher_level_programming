@@ -175,8 +175,7 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """return dict representation for the
-        class Rectangle
+        class Square attributes
         """
-        return {'x': self.x, 'y': self.y,
-                'id': self.id, 'height': self.height,
+        return {'x': self.x, 'y': self.y, 'id': self.id, 'height': self.height,
                 'width': self.width}
