@@ -39,3 +39,32 @@ class Square(Rectangle):
         elif value <= 0:
             raise ValueError('width must be > 0')
         self.width = value
+
+    def update(self, *args, **kwargs):
+        """Updates square class Method that
+        assign a value to each attribute
+
+        Attr:
+            *args (Non-Keyword Arguments): tuple
+            **kwargs (Keyword Arguments): dict
+        """
+        if len(args) != 0 and args is not None:
+            if len(args) > 0:
+                self.id = args[0]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
+
+        elif len(kwargs) != 0 and kwargs is not None:
+            for key, value in kwargs.items():
+                if key == "id":
+                    self.id = value
+                if key == "size":
+                    self.size = value
+                if key == "x":
+                    self.x = value
+                if key == "y":
+                    self.y = value

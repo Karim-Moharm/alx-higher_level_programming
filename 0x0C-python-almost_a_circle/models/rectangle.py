@@ -139,13 +139,13 @@ class Rectangle(Base):
                 self.y,
                 self.width,
                 self.height)
-    
+
     def update(self, *args, **kwargs):
-        """Updates rectangle class Method that 
+        """Updates rectangle class Method that
         assign a value to each attribute
 
         Attr:
-            *args (Non-Keyword Arguments): tuple 
+            *args (Non-Keyword Arguments): tuple
             **kwargs (Keyword Arguments): dict
         """
         if len(args) != 0 and args is not None:
@@ -159,7 +159,7 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) > 4:
                 self.y = args[4]
-        
+
         elif len(kwargs) != 0 and kwargs is not None:
             for key, value in kwargs.items():
                 if key == "id":
@@ -172,3 +172,11 @@ class Rectangle(Base):
                     self.x = value
                 if key == "y":
                     self.y = value
+
+    def to_dictionary(self):
+        """return dict representation for the
+        class Rectangle
+        """
+        return {'x': self.x, 'y': self.y,
+                'id': self.id, 'height': self.height,
+                'width': self.width}
