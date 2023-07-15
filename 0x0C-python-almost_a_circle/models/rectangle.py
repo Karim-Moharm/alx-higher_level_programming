@@ -19,11 +19,20 @@ class Rectangle(Base):
     @property
     def width(self):
         """property method for width
+        Returns:
+            value of width
         """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """setter method for width attr
+        Raises:
+            TypeError: if the new width  value not int
+            ValueError: if the new width value <= 0
+        Args:
+            value (int): new width value
+        """
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -33,10 +42,21 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """property method for height
+        Returns:
+            value of height
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """setter method for height attr
+        Raises:
+            TypeError: if the new height value not int
+            ValueError: if the new height value <= 0
+        Args:
+            value (int): new height value
+        """
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -46,10 +66,22 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """property method for x
+        Returns:
+            value of x
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """setter method for x attr
+        Raises:
+            TypeError: if value of x not int
+            ValueError: if new value < 0
+        Args:
+            value (int): new height value
+        """
+
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -59,10 +91,22 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """property method for y
+        Returns:
+            value of y
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """setter method for y attr
+        Raises:
+            TypeError: if value of y not int
+            ValueError: if new value < 0
+        Args:
+            value (int): new height value
+        """
+
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -88,6 +132,8 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """str method for class Rectangle
+        """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(
                 self.id,
                 self.x,
@@ -96,6 +142,13 @@ class Rectangle(Base):
                 self.height)
     
     def update(self, *args, **kwargs):
+        """Updates rectangle class Method that 
+        assign a value to each attribute
+
+        Attr:
+            *args (Non-Keyword Arguments): tuple 
+            **kwargs (Keyword Arguments): dict
+        """
         if len(args) != 0 and args is not None:
             if len(args) > 0:
                 self.id = args[0]
