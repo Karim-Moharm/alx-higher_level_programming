@@ -11,7 +11,7 @@ class Square(Rectangle):
         """The init magic mehtod
         """
         super().__init__(size, size, x, y, id)
-        self.size= size
+        self.size = size
 
     def __str__(self):
         """str method for class Rectangle
@@ -28,7 +28,7 @@ class Square(Rectangle):
         Returns:
             size of square
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -38,4 +38,4 @@ class Square(Rectangle):
             raise TypeError('width must be an integer')
         elif value <= 0:
             raise ValueError('width must be > 0')
-        self.__size = value
+        self.width = value
