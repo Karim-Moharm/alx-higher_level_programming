@@ -79,9 +79,8 @@ class Rectangle(Base):
             TypeError: if value of x not int
             ValueError: if new value < 0
         Args:
-            value (int): new height value
+            value (int): new x value
         """
-
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -104,7 +103,7 @@ class Rectangle(Base):
             TypeError: if value of y not int
             ValueError: if new value < 0
         Args:
-            value (int): new height value
+            value (int): new y value
         """
 
         if type(value) is not int:
