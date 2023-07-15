@@ -94,3 +94,7 @@ class Rectangle(Base):
                 self.y,
                 self.width,
                 self.height)
+    
+    def update(self, *args):
+        for arg in args:
+            self.arg = arg
