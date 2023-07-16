@@ -47,3 +47,11 @@ class Base:
 
         with open (file_name , mode='w', encoding='utf-8') as fp:
             fp.write(cls.to_json_string(lst))
+
+    def from_json_string(json_string):
+        """return list of json format and save it in 
+        python object
+        """
+        if json_string is not None:
+            return json.loads(json_string)
+        return "[]"
