@@ -37,6 +37,7 @@ class Base:
         """write a jsong format into a file
         """
         lst = []
+        # cls.__name__ returns name of the class
         file_name = cls.__name__ + '.json'
 
         if list_objs is None:
@@ -72,3 +73,18 @@ class Base:
         dummy_instance.update(**dictionary)
 
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances
+        """
+        filename = cls.__name__ + '.json'
+        lst = []
+
+        if filename is None:
+            return lst
+        with open (filename, mode='r', encoding='utf-8') as fp:
+            lst = cls.from_json_string(fp.read())
+        return lst
+
+
