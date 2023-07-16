@@ -34,6 +34,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        # NOT DONE
         """write a jsong format into a file
         """
         lst = []
@@ -76,6 +77,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        # NOT_DONE
         """returns a list of instances
         """
         filename = cls.__name__ + '.json'
