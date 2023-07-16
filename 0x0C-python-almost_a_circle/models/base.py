@@ -48,6 +48,7 @@ class Base:
         with open (file_name , mode='w', encoding='utf-8') as fp:
             fp.write(cls.to_json_string(lst))
 
+    @staticmethod
     def from_json_string(json_string):
         """return list of json format and save it in 
         python object
@@ -55,3 +56,17 @@ class Base:
         if json_string is not None:
             return json.loads(json_string)
         return []
+
+    @classmethod
+    def create(cls, **dictionary):
+        """returns an instance with all attributes already set
+        """
+        dummy_instance = 0
+        class_name = cls.__name__
+
+        if class_name == "Rectangle":
+            dummy_instance = cls(5, 3)
+        if class_name == "Square":
+            dummy_instance = cls(5)
+
+        return dummy_instance.update(**dictionary)
