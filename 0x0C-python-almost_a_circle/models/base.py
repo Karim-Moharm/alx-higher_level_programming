@@ -65,8 +65,10 @@ class Base:
         class_name = cls.__name__
 
         if class_name == "Rectangle":
-            dummy_instance = cls(5, 3)
+            dummy_instance = cls(5, 3, 1)
         if class_name == "Square":
             dummy_instance = cls(5)
 
-        return dummy_instance.update(**dictionary)
+        dummy_instance.update(**dictionary)
+
+        return dummy_instance
