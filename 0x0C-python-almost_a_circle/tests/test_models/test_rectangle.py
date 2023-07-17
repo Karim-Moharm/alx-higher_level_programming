@@ -32,6 +32,14 @@ class TestRectangleModule(unittest.TestCase):
         self.assertEqual(r2.y, 0)
         self.assertEqual(r2.id, 1)
 
+    def test_negative_attr(self):
+        with self.assertRaises(ValueError):
+            rect = Rectangle(-4, 12)
+        with self.assertRaises(ValueError):
+            rect = Rectangle(4, -12)
+        with self.assertRaises(ValueError):
+            rect = Rectangle(-4, -12)
+
     def test_one_attr(self):
         """passing only one attribute
         """
@@ -44,7 +52,7 @@ class TestRectangleModule(unittest.TestCase):
         with self.assertRaises(TypeError):
             r4 = Rectangle()
 
-    def test_wrong_types(self):
+    def test_wrong_types_1(self):
         """test with wrong attributes types
         """
         with self.assertRaises(TypeError):
@@ -56,6 +64,10 @@ class TestRectangleModule(unittest.TestCase):
         with self.assertRaises(TypeError):
             rect = Rectangle(True, False)
         
+        
+    def test_wrong_types_2(self):
+        """test with wrong attributes types
+        """ 
         with self.assertRaises(TypeError):
             rect = Rectangle((1, 2), (3, 4))
         
@@ -96,3 +108,33 @@ class TestRectangleModule(unittest.TestCase):
         rec = Rectangle(3, 5)
         with self.assertRaises(AttributeError):
             print(rec.__y)
+
+    def test_area_normal_attr(self):
+        """test area method for rectangle
+        """
+        r1 = Rectangle(4, 8)
+        self.assertEqual(r1.area(), 32)
+        r2 = Rectangle(4, 8, 0, 4, 6)
+        self.assertEqual(r2.area(), 32)
+
+    def test_area_wrong_types(self):
+        """test area method with types not int
+        """
+        with self.assertRaises(TypeError):
+            r1 = Rectangle(4, "8")
+        with self.assertRaises(TypeError):
+            r2 = Rectangle("4", 8)
+        with self.assertRaises(TypeError):
+            r3 = Rectangle(4, 8, 0, "4", 6)
+        with self.assertRaises(TypeError):
+            r4 = Rectangle(4, False)
+
+    def test_area_no_attr(self):
+        with self.assertRaises(TypeError):
+            rec = Rectangle()
+            rec.area()
+
+    def test_display(self):
+        r1 = Rectangle(3, 4)
+        actual = "###\n###\n###\n###\n"
+        self.assertEqual(r1.display(), actual)
