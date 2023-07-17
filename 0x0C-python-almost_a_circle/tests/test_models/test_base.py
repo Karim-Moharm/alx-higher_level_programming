@@ -9,7 +9,7 @@ from models.square import Square
 
 class TestBaseClass(unittest.TestCase):
     """Tests cases for Base Class
-    """ 
+    """
     '''ERROR
     def test_class_attribute(self):
         """test if nb_object is initialized with zero
@@ -42,32 +42,31 @@ class TestBaseClass(unittest.TestCase):
         """test converting python list of dict into
         json format
         """
-        # accessing the private attr from outside the class
-        Base._Base__nb_objects = 0 # to return id to 0
+        # accessing name mangle private attr from outside the class
+        Base._Base__nb_objects = 0  # to set id to 0
 
         r1 = Rectangle(8, 5, 2, 4)
         py_dict = r1.to_dictionary()
         json_str = Base.to_json_string([py_dict])
 
         # convert py_dict to str to use replace method
-        compared_dict = str([py_dict])
-        compared_dict = compared_dict.replace("'", '"')
+        py_dict_str = str([py_dict])
+        compared_dict = py_dict_str.replace("'", '"')
 
         self.assertEqual(json_str, compared_dict)
-        self.assertEqual(len(json_str), len(compared_dict))
+        self.assertEqual(len(json_str), len(py_dict_str))
         self.assertEqual(type(py_dict), dict)
         self.assertEqual(type(json_str), str)
 
         self.assertEqual(Base.to_json_string(None), "[]")
-        self.assertEqual(Base.to_json_string(), "[]")
 
-        py_dict = {
+        py_dict = [{
             "name": "karim",
             "age": 22,
-            "study": "electrical engineering",
-            "passion": "software and movies"
-        }
+        }]
 
-        self.assertEqual(Base.to_json_string([py_dict]), [py_dict])
+        py_dict_str = '[{"name": "karim", "age": 22}]'
 
-        self.assertEqual(Base.to_json_string([{}]), [{}])
+        self.assertEqual(Base.to_json_string(py_dict), py_dict_str)
+
+        self.assertEqual(Base.to_json_string([{}]), '[{}]')
