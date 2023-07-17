@@ -10,7 +10,7 @@ from models.square import Square
 class TestBaseClass(unittest.TestCase):
     """Tests cases for Base Class
     """ 
-    ''' Issue....
+    '''ERROR
     def test_class_attribute(self):
         """test if nb_object is initialized with zero
         """
