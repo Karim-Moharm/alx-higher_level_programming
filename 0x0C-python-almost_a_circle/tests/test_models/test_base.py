@@ -22,3 +22,13 @@ class TestBaseClass(unittest.TestCase):
         """
         b1 = Base(10)
         self.assertEqual(b1.id, 10)
+
+    def testA_id_attr_None(self):
+        """test None case id attribute"""
+        b1 = Base()
+        self.assertEqual(b1.id, 1)
+
+    def testB_id_attr_None(self):
+        """test None case id attribute"""
+        b1 = Base()
+        self.assertEqual(b1.id, 2)
