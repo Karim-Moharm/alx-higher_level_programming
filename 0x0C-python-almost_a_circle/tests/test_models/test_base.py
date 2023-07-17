@@ -70,3 +70,44 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(Base.to_json_string(py_dict), py_dict_str)
 
         self.assertEqual(Base.to_json_string([{}]), '[{}]')
+
+
+    def test_save_to_file(self):
+        """test the writing json format to file"""
+        pass
+
+    def test_from_json_string(self):
+        """test from json format to py dict"""
+        list_input = [
+            {"id": 89, "width": 10, "height": 4},
+            {"id": 7, "width": 1, "height": 7}]
+        
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        
+        self.assertEqual(list_input, list_output)
+
+        self.assertEqual(Base.from_json_string(None), [])
+
+    '''
+    def test_create_instance(self):
+        """test create method"""
+        r1 = Rectangle(3, 5, 1)  # [Rectangle] (1) 1/0 - 3/5
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(r1, r2)
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
+        
+        s1 = Square(size=3, x=5, y=1)  # [Square] (1) 5/1 - 3
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual(s1, s2)
+        self.assertFalse(s1 is s2)
+        self.assertFalse(s1 == s2)
+
+        '''
+
+    def test_load_from_file(self):
+        """test load from json file method"""
+        pass
