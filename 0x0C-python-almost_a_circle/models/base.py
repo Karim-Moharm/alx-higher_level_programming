@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Base class module
 """
-import  json
+import json
 
 
 class Base:
@@ -47,12 +47,12 @@ class Base:
             for i in list_objs:
                 lst.append(i.__dict__)
 
-        with open (file_name , mode='w', encoding='utf-8') as fp:
+        with open(file_name, mode='w', encoding='utf-8') as fp:
             fp.write(cls.to_json_string(lst))
 
     @staticmethod
     def from_json_string(json_string):
-        """return list of json format and save it in 
+        """return list of json format and save it in
         python object
         """
         if json_string is not None:
@@ -85,8 +85,6 @@ class Base:
 
         if filename is None:
             return lst
-        with open (filename, mode='r', encoding='utf-8') as fp:
+        with open(filename, mode='r', encoding='utf-8') as fp:
             lst = cls.from_json_string(fp.read())
         return lst
-
-
