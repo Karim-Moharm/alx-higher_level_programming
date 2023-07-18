@@ -132,3 +132,20 @@ class TestSquareModule(unittest.TestCase):
         with self.assertRaises(TypeError):
             s = Square()
             s.area()
+
+    def test_str_method(self):
+        """test __str__ metjof for Square
+        class
+        """
+        s1 = Square(4, 6, 2, 12)  #  Square(size, x=0, y=0, id=None)
+        s2 = Square(5, 5, id=11)
+        actual_1 = "[Square] (12) 6/2 - 4"  # [Square] (<id>) <x>/<y> - <size>
+        actual_2 = "[Square] (11) 5/0 - 5"
+
+        self.assertEqual(str(s1), actual_1)
+        self.assertEqual(str(s2), actual_2)
+
+        Base._Base__nb_objects = 0
+        s3 = Square(8, 3, 1)
+        actual_3 = "[Square] (1) 3/1 - 8"
+        self.assertEqual(str(s3), actual_3)
