@@ -198,3 +198,34 @@ class TestSquareModule(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             s.update(10, 17.22, 20)
+
+    def test_upadte_kwargs(self):
+        """test cases for update kwargs
+        test if kwargs is skipped if args exist
+        """
+        s = Square(1, 2, 3, 4)
+        s.update(89, id=8)
+        self.assertEqual([s.id, s.size, s.x, s.y], [89, 1, 2, 3])
+
+        s.update(12, 7, 5, 7, id=3, size=12, x=9, y=10)
+        self.assertEqual([s.id, s.size, s.x, s.y], [12, 7, 5, 7])
+
+    def test_update_kwargs_2(self):
+        """test update kwargs method"""
+        s = Square(5, 9, 10, 10)
+
+        s.update(id=7)
+        self.assertEqual(str(s), "[Square] (7) 9/10 - 5")
+
+        s.update(x=4, y=6)
+        self.assertEqual(str(s), "[Square] (7) 4/6 - 5")
+
+        s.update(size=1)
+        self.assertEqual(str(s), "[Square] (7) 4/6 - 1")
+
+        s.update(size=3, x=2, id=89)
+        self.assertEqual(str(s), "[Square] (89) 2/6 - 3")
+
+        Base._Base__nb_objects = 0
+        s = Square(10, 10, 10)
+        self.assertEqual(str(s), "[Square] (1) 10/10 - 10")
