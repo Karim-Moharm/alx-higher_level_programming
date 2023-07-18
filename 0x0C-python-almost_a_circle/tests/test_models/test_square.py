@@ -245,3 +245,33 @@ class TestSquareModule(unittest.TestCase):
 
         s.update(**{"id": 89, "size": 1, "x": 2, "y": 3})
         self.assertEqual(s.y, 3)
+
+    def test_to_dictionary(self):
+        """test to_dictionary method for square
+        class
+        """
+        s = Square(1, 2, 3, 4)
+        d = {"x": 2, "y": 3, "size": 1, "id": 4}
+        self.assertEqual(s.to_dictionary(), d)
+
+        s = Square(5, 3)
+        d = {"x": 3, "y": 0, "size": 5, "id": 1}
+        self.assertEqual(s.to_dictionary(), d)
+
+        s1 = Square(10, 2, 1)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square(1, 1)
+        s2.update(**s1_dictionary)
+        self.assertEqual(str(s1), str(s2))
+        self.assertFalse(s1 == s2)
+
+    def test_to_dictionary2(self):
+        """
+        Tests_2 for dictionary method
+        """
+        s = Square(1, 2, 3, 4)
+        d = s.to_dictionary()
+        self.assertEqual(d["size"], 1)
+        self.assertEqual(d["x"], 2)
+        self.assertEqual(d["y"], 3)
+        self.assertEqual(d["id"], 4)
