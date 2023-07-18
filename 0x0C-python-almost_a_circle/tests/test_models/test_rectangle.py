@@ -4,6 +4,7 @@
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
+from io import StringIO
 
 
 class TestRectangleModule(unittest.TestCase):
@@ -136,13 +137,50 @@ class TestRectangleModule(unittest.TestCase):
             rec = Rectangle()
             rec.area()
     
-    ''' TODO
+    ''' ERRORS
     def test_display(self):
+        """test display function using StringIO to capture output
+        """
         r1 = Rectangle(3, 4)
-        actual = "###\n###\n###\n###\n"
-        self.assertEqual(r1.display(), actual)
-    '''
 
+        # Redirect stdout to capture the printed output
+        expected_output = "###\n###\n###\n###\n"
+        with StringIO() as captured_output:
+            r1.display()
+            self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_small_rectangle(self):
+        """test for display method
+        """
+        r2 = Rectangle(2, 2)
+
+        expected_output = "##\n##\n"
+        with StringIO() as captured_output:
+            r2.display()
+            self.assertEqual(captured_output.getvalue(), expected_output)
+
+
+    def test_display_with_offsets_1(self):
+        """test using offsets x, y
+        """
+        r1 = Rectangle(2, 3, 2, 2)
+
+        expected_output = "\n\n  ##\n  ##\n  ##\n"
+        with StringIO() as captured_output:
+            r1.display()
+            self.assertEqual(captured_output.getvalue(), expected_output)
+
+    def test_display_with_other_offsets_2(self):
+        """test using x, y
+        """
+        r2 = Rectangle(3, 2, 1, 0)
+
+        expected_output = " ###\n ###\n"
+        with StringIO() as captured_output:
+            r2.display()
+            self.assertEqual(captured_output.getvalue(), expected_output)
+
+    '''
     def test_str_method(self):
         """test __str__ metjof for rectangle 
         class
@@ -256,4 +294,18 @@ class TestRectangleModule(unittest.TestCase):
         r2.update(**r1_dictionary)
         self.assertEqual(str(r1), str(r2))
         self.assertFalse(r1 == r2)
+
+    
+    def test_to_dictionary2(self):
+        """
+        Tests_2 for dictionary method
+        """
+        r = Rectangle(1, 2, 3, 4, 5)
+        d = r.to_dictionary()
+        self.assertEqual(d["width"], 1)
+        self.assertEqual(d["height"], 2)
+        self.assertEqual(d["x"], 3)
+        self.assertEqual(d["y"], 4)
+        self.assertEqual(d["id"], 5)
+
 
