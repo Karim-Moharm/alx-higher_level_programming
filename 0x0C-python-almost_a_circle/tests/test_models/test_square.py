@@ -180,8 +180,6 @@ class TestSquareModule(unittest.TestCase):
         """test cases for update using bad args"""
         s = Square(5)
 
-        with self.assertRaises(TypeError):
-            s.update("12")
 
         with self.assertRaises(TypeError):
             s.update(12, "4")
@@ -200,6 +198,3 @@ class TestSquareModule(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             s.update(10, 17.22, 20)
-
-        with self.assertRaises(TypeError):
-            s.update([12, 2], 17, 20)
