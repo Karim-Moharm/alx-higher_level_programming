@@ -1,4 +1,4 @@
-#!/usr/bin/ptyhon3
+#!/usr/bin/python3
 """The square module
 """
 from models.rectangle import Rectangle
