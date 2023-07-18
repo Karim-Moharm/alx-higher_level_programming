@@ -12,7 +12,7 @@ class TestRectangleModule(unittest.TestCase):
     """
 
     def test_all_attributes(self):
-        """test rectangle class when all attributes 
+        """test rectangle class when all attributes
         are passed
         """
         r1 = Rectangle(2, 4, 8, 0, 45)
@@ -61,25 +61,24 @@ class TestRectangleModule(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             rect = Rectangle('w', 'h')
-        
+
         with self.assertRaises(TypeError):
             rect = Rectangle(True, False)
-        
-        
+
     def test_wrong_types_2(self):
         """test with wrong attributes types
-        """ 
+        """
         with self.assertRaises(TypeError):
             rect = Rectangle((1, 2), (3, 4))
-        
+
         with self.assertRaises(TypeError):
             rect = Rectangle([1, 2], [3, 4])
-        
+
         with self.assertRaises(TypeError):
             rect = Rectangle({1: 3, 2: 4}, 5)
 
     def test_get_width(self):
-        """test case of trying to access the private 
+        """test case of trying to access the private
         attr width
         """
         rec = Rectangle(3, 5)
@@ -87,7 +86,7 @@ class TestRectangleModule(unittest.TestCase):
             print(rec.__width)
 
     def test_get_height(self):
-        """test case of trying to access the private 
+        """test case of trying to access the private
         attr height
         """
         rec = Rectangle(3, 5)
@@ -95,7 +94,7 @@ class TestRectangleModule(unittest.TestCase):
             print(rec.__height)
 
     def test_get_x(self):
-        """test case of trying to access the private 
+        """test case of trying to access the private
         attr x
         """
         rec = Rectangle(3, 5)
@@ -103,7 +102,7 @@ class TestRectangleModule(unittest.TestCase):
             print(rec.__x)
 
     def test_get_y(self):
-        """test case of trying to access the private 
+        """test case of trying to access the private
         attr y
         """
         rec = Rectangle(3, 5)
@@ -136,7 +135,7 @@ class TestRectangleModule(unittest.TestCase):
         with self.assertRaises(TypeError):
             rec = Rectangle()
             rec.area()
-    
+
     ''' ERRORS
     def test_display(self):
         """test display function using StringIO to capture output
@@ -181,8 +180,9 @@ class TestRectangleModule(unittest.TestCase):
             self.assertEqual(captured_output.getvalue(), expected_output)
 
     '''
+
     def test_str_method(self):
-        """test __str__ metjof for rectangle 
+        """test __str__ metjof for rectangle
         class
         """
         r1 = Rectangle(4, 6, 2, 1, 12)
@@ -194,7 +194,7 @@ class TestRectangleModule(unittest.TestCase):
         self.assertEqual(str(r2), actual_2)
 
         Base._Base__nb_objects = 0
-        r3= Rectangle(8, 3, 1)
+        r3 = Rectangle(8, 3, 1)
         actual_3 = '[Rectangle] (1) 1/0 - 8/3'
         self.assertEqual(str(r3), actual_3)
 
@@ -227,7 +227,7 @@ class TestRectangleModule(unittest.TestCase):
         """test cases for update using bad args
         """
         r = Rectangle(5, 9)
-        
+
         with self.assertRaises(ValueError):
             r.update(12, -8)
 
@@ -236,7 +236,7 @@ class TestRectangleModule(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             r.update(10, 5, 17, -20)
-    
+
         with self.assertRaises(TypeError):
             r.update(10, 5, 17.22, 20)
 
@@ -252,8 +252,7 @@ class TestRectangleModule(unittest.TestCase):
         self.assertEqual([r.id, r.width, r.height, r.x, r.y], [89, 1, 2, 3, 4])
 
         r.update(12, 7, 5, 6, 7, id=3, width=7, height=12, x=9, y=10)
-        self.assertEqual([r.id, r.width, r.height, r.x, r.y], 
-                [12, 7, 5, 6, 7])
+        self.assertEqual([r.id, r.width, r.height, r.x, r.y], [12, 7, 5, 6, 7])
 
     def test_update_kwargs_2(self):
         """test update kwargs method
@@ -262,7 +261,7 @@ class TestRectangleModule(unittest.TestCase):
 
         r.update(id=7)
         self.assertEqual(str(r), "[Rectangle] (7) 10/10 - 5/9")
-        
+
         r.update(x=4, y=6)
         self.assertEqual(str(r), "[Rectangle] (7) 4/6 - 5/9")
 
@@ -275,7 +274,6 @@ class TestRectangleModule(unittest.TestCase):
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 10, 10, 10)
         self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
-
 
     def test_to_dictionary(self):
         """test to_dictionary method"""
@@ -295,7 +293,6 @@ class TestRectangleModule(unittest.TestCase):
         self.assertEqual(str(r1), str(r2))
         self.assertFalse(r1 == r2)
 
-    
     def test_to_dictionary2(self):
         """
         Tests_2 for dictionary method
@@ -307,5 +304,3 @@ class TestRectangleModule(unittest.TestCase):
         self.assertEqual(d["x"], 3)
         self.assertEqual(d["y"], 4)
         self.assertEqual(d["id"], 5)
-
-

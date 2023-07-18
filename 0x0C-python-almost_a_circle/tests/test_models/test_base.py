@@ -10,11 +10,11 @@ from models.square import Square
 class TestBaseClass(unittest.TestCase):
     """Tests cases for Base Class
     """
-    '''ERROR
+    ''' ERROR
     def test_class_attribute(self):
         """test if nb_object is initialized with zero
         """
-        self.assertEqual(getattr(Base, 'Base.__nb_object'), 0)
+        self.assertEqual(getattr(Base, Base._Base__nb_object), 0)
     '''
 
     def test_id_attr(self):
@@ -68,9 +68,7 @@ class TestBaseClass(unittest.TestCase):
         py_dict_str = '[{"name": "karim", "age": 22}]'
 
         self.assertEqual(Base.to_json_string(py_dict), py_dict_str)
-
         self.assertEqual(Base.to_json_string([{}]), '[{}]')
-
 
     def test_save_to_file(self):
         """test the writing json format to file"""
@@ -81,12 +79,11 @@ class TestBaseClass(unittest.TestCase):
         list_input = [
             {"id": 89, "width": 10, "height": 4},
             {"id": 7, "width": 1, "height": 7}]
-        
+
         json_list_input = Rectangle.to_json_string(list_input)
         list_output = Rectangle.from_json_string(json_list_input)
-        
-        self.assertEqual(list_input, list_output)
 
+        self.assertEqual(list_input, list_output)
         self.assertEqual(Base.from_json_string(None), [])
 
     '''
@@ -98,7 +95,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(r1, r2)
         self.assertFalse(r1 is r2)
         self.assertFalse(r1 == r2)
-        
+
         s1 = Square(size=3, x=5, y=1)  # [Square] (1) 5/1 - 3
         s1_dictionary = s1.to_dictionary()
         s2 = Square.create(**s1_dictionary)

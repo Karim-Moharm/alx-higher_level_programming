@@ -137,7 +137,7 @@ class TestSquareModule(unittest.TestCase):
         """test __str__ metjof for Square
         class
         """
-        s1 = Square(4, 6, 2, 12)  #  Square(size, x=0, y=0, id=None)
+        s1 = Square(4, 6, 2, 12)  # Square(size, x=0, y=0, id=None)
         s2 = Square(5, 5, id=11)
         actual_1 = "[Square] (12) 6/2 - 4"  # [Square] (<id>) <x>/<y> - <size>
         actual_2 = "[Square] (11) 5/0 - 5"
@@ -149,7 +149,7 @@ class TestSquareModule(unittest.TestCase):
         s3 = Square(8, 3, 1)
         actual_3 = "[Square] (1) 3/1 - 8"
         self.assertEqual(str(s3), actual_3)
-        
+
     def test_update_args_1(self):
         """update method testing"""
         # order of update() function => id   size   x   y
@@ -157,7 +157,7 @@ class TestSquareModule(unittest.TestCase):
         s = Square(7, 7, 7, 7)
         self.assertEqual([s.id, s.size, s.x, s.y], [7, 7, 7, 7])
 
-        s = Square(2, 3, 4, 5)  #  Square(size, x=0, y=0, id=None)
+        s = Square(2, 3, 4, 5)  # Square(size, x=0, y=0, id=None)
         s.update()
         self.assertEqual([s.id, s.size, s.x, s.y], [5, 2, 3, 4])
 
@@ -179,7 +179,6 @@ class TestSquareModule(unittest.TestCase):
     def test_update_with_wrong_args(self):
         """test cases for update using bad args"""
         s = Square(5)
-
 
         with self.assertRaises(TypeError):
             s.update(12, "4")
