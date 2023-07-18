@@ -175,3 +175,31 @@ class TestSquareModule(unittest.TestCase):
 
         s.update(12, 7, 4, 3)
         self.assertEqual(3, s.y)
+
+    def test_update_with_wrong_args(self):
+        """test cases for update using bad args"""
+        s = Square(5)
+
+        with self.assertRaises(TypeError):
+            s.update("12")
+
+        with self.assertRaises(TypeError):
+            s.update(12, "4")
+
+        with self.assertRaises(TypeError):
+            s.update(7, 4, "9")
+
+        with self.assertRaises(ValueError):
+            s.update(12, -8)
+
+        with self.assertRaises(ValueError):
+            s.update(0, 5, -4)
+
+        with self.assertRaises(ValueError):
+            s.update(10, 5, 17, -20)
+
+        with self.assertRaises(TypeError):
+            s.update(10, 17.22, 20)
+
+        with self.assertRaises(TypeError):
+            s.update([12, 2], 17, 20)
