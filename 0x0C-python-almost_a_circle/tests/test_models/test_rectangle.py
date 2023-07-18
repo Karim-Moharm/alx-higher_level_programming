@@ -204,3 +204,36 @@ class TestRectangleModule(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             r.update(5, 6, 4, 20, -12)
+
+    def test_upadte_kwargs(self):
+        """test cases for update kwargs
+        test if kwargs is skipped if args exist
+        """
+        r = Rectangle(1, 2, 3, 4, 5)
+        r.update(89, id=8)
+        self.assertEqual([r.id, r.width, r.height, r.x, r.y], [89, 1, 2, 3, 4])
+
+        r.update(12, 7, 5, 6, 7, id=3, width=7, height=12, x=9, y=10)
+        self.assertEqual([r.id, r.width, r.height, r.x, r.y], 
+                [12, 7, 5, 6, 7])
+
+    def test_update_kwargs_2(self):
+        """test update kwargs method
+        """
+        r = Rectangle(5, 9, 10, 10)
+
+        r.update(id=7)
+        self.assertEqual(str(r), "[Rectangle] (7) 10/10 - 5/9")
+        
+        r.update(x=4, y=6)
+        self.assertEqual(str(r), "[Rectangle] (7) 4/6 - 5/9")
+
+        r.update(width=1)
+        self.assertEqual(str(r), "[Rectangle] (7) 4/6 - 1/9")
+
+        r.update(height=3, x=2, id=89)
+        self.assertEqual(str(r), "[Rectangle] (89) 2/6 - 1/3")
+
+        Base._Base__nb_objects = 0
+        r1 = Rectangle(10, 10, 10, 10)
+        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
