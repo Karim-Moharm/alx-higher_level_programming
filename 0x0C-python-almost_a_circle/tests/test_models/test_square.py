@@ -26,8 +26,8 @@ class TestSquareModule(unittest.TestCase):
         self.assertEqual(s1.y, 0)
         self.assertEqual(s1.id, 45)
 
-    def test_only_two_attrs(self):
-        """passing width and height attrivutes only"""
+    def test_only_size_attr(self):
+        """passing size attribute only"""
         s2 = Square(4)
         self.assertEqual(s2.size, 4)
         self.assertEqual(s2.x, 0)
@@ -126,3 +126,9 @@ class TestSquareModule(unittest.TestCase):
             s3 = Square(-4, 8, 0, 4)
         with self.assertRaises(TypeError):
             s4 = Square(True, 8)
+
+    def test_area_no_attr(self):
+        """test area in case no attributes passed"""
+        with self.assertRaises(TypeError):
+            s = Square()
+            s.area()
