@@ -149,3 +149,29 @@ class TestSquareModule(unittest.TestCase):
         s3 = Square(8, 3, 1)
         actual_3 = "[Square] (1) 3/1 - 8"
         self.assertEqual(str(s3), actual_3)
+        
+    def test_update_args_1(self):
+        """update method testing"""
+        # order of update() function => id   size   x   y
+
+        s = Square(7, 7, 7, 7)
+        self.assertEqual([s.id, s.size, s.x, s.y], [7, 7, 7, 7])
+
+        s = Square(2, 3, 4, 5)  #  Square(size, x=0, y=0, id=None)
+        s.update()
+        self.assertEqual([s.id, s.size, s.x, s.y], [5, 2, 3, 4])
+
+        s = Square(1, 1, 1, 89)
+        self.assertEqual(89, s.id)
+
+        s.update(12, 7)
+        self.assertEqual(12, s.id)
+        self.assertEqual(7, s.size)
+
+        s.update(12, 7, 4)
+        self.assertEqual(12, s.id)
+        self.assertEqual(7, s.size)
+        self.assertEqual(4, s.x)
+
+        s.update(12, 7, 4, 3)
+        self.assertEqual(3, s.y)
