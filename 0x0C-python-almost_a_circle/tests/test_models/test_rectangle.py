@@ -237,3 +237,23 @@ class TestRectangleModule(unittest.TestCase):
         Base._Base__nb_objects = 0
         r1 = Rectangle(10, 10, 10, 10)
         self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
+
+
+    def test_to_dictionary(self):
+        """test to_dictionary method"""
+
+        r = Rectangle(1, 2, 3, 4, 5)
+        d = {"x": 3, "y": 4, "width": 1, "id": 5, "height": 2}
+        self.assertEqual(r.to_dictionary(), d)
+
+        r = Rectangle(5, 3)
+        d = {"x": 0, "y": 0, "width": 5, "id": 2, "height": 3}
+        self.assertEqual(r.to_dictionary(), d)
+
+        r1 = Rectangle(10, 2, 1, 9)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 == r2)
+
