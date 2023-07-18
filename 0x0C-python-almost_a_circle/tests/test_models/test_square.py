@@ -229,3 +229,19 @@ class TestSquareModule(unittest.TestCase):
         Base._Base__nb_objects = 0
         s = Square(10, 10, 10)
         self.assertEqual(str(s), "[Square] (1) 10/10 - 10")
+
+    def test_update_kwargs_3(self):
+        """test kwargs for update method"""
+        s = Square(4)
+
+        s.update(**{"id": 89})
+        self.assertEqual(s.id, 89)
+
+        s.update(**{"id": 89, "size": 1})
+        self.assertEqual(s.size, 1)
+
+        s.update(**{"id": 89, "size": 1, "x": 2})
+        self.assertEqual(s.x, 2)
+
+        s.update(**{"id": 89, "size": 1, "x": 2, "y": 3})
+        self.assertEqual(s.y, 3)
