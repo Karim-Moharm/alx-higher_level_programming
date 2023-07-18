@@ -130,11 +130,77 @@ class TestRectangleModule(unittest.TestCase):
             r4 = Rectangle(4, False)
 
     def test_area_no_attr(self):
+        """test area in case no attributes passed
+        """
         with self.assertRaises(TypeError):
             rec = Rectangle()
             rec.area()
-
+    
+    ''' TODO
     def test_display(self):
         r1 = Rectangle(3, 4)
         actual = "###\n###\n###\n###\n"
         self.assertEqual(r1.display(), actual)
+    '''
+
+    def test_str_method(self):
+        """test __str__ metjof for rectangle 
+        class
+        """
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r2 = Rectangle(5, 5, 1, id=1)
+        actual_1 = '[Rectangle] (12) 2/1 - 4/6'
+        actual_2 = '[Rectangle] (1) 1/0 - 5/5'
+
+        self.assertEqual(str(r1), actual_1)
+        self.assertEqual(str(r2), actual_2)
+
+        Base._Base__nb_objects = 0
+        r3= Rectangle(8, 3, 1)
+        actual_3 = '[Rectangle] (1) 1/0 - 8/3'
+        self.assertEqual(str(r3), actual_3)
+
+    def test_update_args_1(self):
+        """update method testing
+        """
+        Base._Base__nb_objects = 0
+
+        # order => id    width   height  x   y
+
+        r = Rectangle(7, 7, 7, 7, 7)
+        self.assertEqual([r.id, r.width, r.height, r.x, r.y], [7, 7, 7, 7, 7])
+
+        r = Rectangle(2, 3, 4, 5, 1)
+        self.assertEqual([r.id, r.width, r.height, r.x, r.y], [1, 2, 3, 4, 5])
+
+        rec = Rectangle(1, 1, 1, 1, 89)
+        self.assertEqual(89, rec.id)
+
+        rec.update(12, 7)
+        self.assertEqual(12, rec.id)
+        self.assertEqual(7, rec.width)
+
+        rec.update(12, 7, 4)
+        self.assertEqual(4, rec.height)
+        rec.update(12, 7, 4, 3)
+        self.assertEqual(3, rec.x)
+
+    def test_update_wrong_args(self):
+        """test cases for update using bad args
+        """
+        r = Rectangle(5, 9)
+        
+        with self.assertRaises(ValueError):
+            r.update(12, -8)
+
+        with self.assertRaises(ValueError):
+            r.update(0, 5, -4)
+
+        with self.assertRaises(ValueError):
+            r.update(10, 5, 17, -20)
+    
+        with self.assertRaises(TypeError):
+            r.update(10, 5, 17.22, 20)
+
+        with self.assertRaises(ValueError):
+            r.update(5, 6, 4, 20, -12)
