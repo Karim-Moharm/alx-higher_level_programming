@@ -2,7 +2,7 @@
 -- add some info to it
 
 CREATE TABLE IF NOT EXISTS second_table (
-	id INT PRIMARY KEY,
+	id,
 	name VARCHAR(256),
 	score INT
 );
