@@ -7,6 +7,8 @@ import MySQLdb
 
 
 def main(av):
+    """main function
+    """
     dbconnect = MySQLdb.connect(host="localhost", port=3306, user=av[1],
                                 passwd=av[2], db=av[3])
     cursor = dbconnect.cursor()
