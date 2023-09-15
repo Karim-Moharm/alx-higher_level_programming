@@ -17,7 +17,7 @@ def main(av):
     query = """
     SELECT id, name
     FROM states
-    WHERE name=%s AND %s BETWEEN 3 AND 15
+    WHERE name=%s AND LENGTH(name) BETWEEN 3 AND 15
     ORDER BY id ASC;
     """
 
