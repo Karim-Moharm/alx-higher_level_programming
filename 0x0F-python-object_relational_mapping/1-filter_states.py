@@ -4,6 +4,7 @@
 
 
 import MySQLdb
+import sys
 
 
 def main(av):
@@ -23,7 +24,7 @@ def main(av):
         cursor.execute(query)
         query_rows = cursor.fetchall()
     except MySQLdb.Error as e:
-        db.close()
+        dbconnect.close()
         sys.exit(1)
 
     for row in query_rows:
@@ -34,5 +35,4 @@ def main(av):
 
 
 if __name__ == "__main__":
-    from sys import argv
-    main(argv)
+    main(sys.argv)
