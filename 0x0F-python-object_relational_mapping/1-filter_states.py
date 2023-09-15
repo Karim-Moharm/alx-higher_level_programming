@@ -10,13 +10,19 @@ def main(av):
     dbconnect = MySQLdb.connect(host="localhost", port=3306, user=av[1],
                                 passwd=av[2], db=av[3])
     cursor = dbconnect.cursor()
-    query = "SELECT id, name\
-            FROM states\
-            ORDER BY id ASC\
-            WHERE name LIKE 'A%';"
+    query = """
+    SELECT id, name
+    FROM states
+    WHERE name LIKE 'N%'
+    ORDER BY id ASC;
+    """
 
-    cursor.execute(query)
-    query_rows = cursor.fetchall()
+    try:
+        cursor.execute(query)
+        query_rows = cursor.fetchall()
+    except MySQLdb.Error as e:
+        db.close()
+        sys.exit(1)
 
     for row in query_rows:
         print(row)
