@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""List all states that starts with Upper `N` in the dataBase
+""" script that takes in an argument and displays all values in the states 
+table of hbtn_0e_0_u
 """
 
 
