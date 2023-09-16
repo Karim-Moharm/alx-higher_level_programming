@@ -19,7 +19,7 @@ def main(av):
     # creating an instance of Session class
     session = Session()
 
-    rows = session.query(State).filter(State.name.like('%a%')).all()
+    rows = session.query(State).filter(State.name.like('%a%'))
     for row in rows:
         session.delete(row)
         session.commit()
