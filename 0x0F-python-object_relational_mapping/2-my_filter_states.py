@@ -17,8 +17,8 @@ def main(av):
     query = """
     SELECT id, name
     FROM states
-    ORDER BY id ASC;
-    """
+    WHERE name='{}'
+    """.format(av[4])
 
     try:
         cursor.execute(query)
@@ -28,8 +28,8 @@ def main(av):
         sys.exit(1)
 
     for row in query_rows:
-        if row[1] == av[4]:
-            print(row[1])
+        # if row[1] == av[4]:
+        print(row[1])
 
     cursor.close()
     dbconnect.close()
