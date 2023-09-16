@@ -18,7 +18,8 @@ def main(av):
     # creating an instance of Session class
     session = Session()
 
-    query = session.query(State).filter(State.name == av[4])
+    query = session.query(State).filter(State.name == av[4]).\
+            order_by(State.id)
 
     if query is None:
         print('Not found')
