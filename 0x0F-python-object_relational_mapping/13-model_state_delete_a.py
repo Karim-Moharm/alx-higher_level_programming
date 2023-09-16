@@ -24,7 +24,6 @@ def main(av):
         session.delete(row)
     session.commit()
 
-
     session.close()
 
 
