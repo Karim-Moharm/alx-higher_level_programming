@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all states that starts with Upper `N` in the dataBase
+"""List all cities from database hbtn_0e_4_usa
 """
 
 
@@ -14,11 +14,10 @@ def main(av):
                                 passwd=av[2], db=av[3])
     cursor = dbconnect.cursor()
     query = """
-    SELECT id, name
-    FROM states
-    # WHERE name LIKE 'N%'
-    WHERE name REGEXP '^[N].*$'
-    ORDER BY id ASC;
+    SELECT id, cities.name, states.name  
+    FROM cities INNER JOIN states
+    ON cities.state_id = states.id
+    ORDER BY cities.state_id ASC;
     """
 
     try:
@@ -37,3 +36,4 @@ def main(av):
 
 if __name__ == "__main__":
     main(sys.argv)
+
