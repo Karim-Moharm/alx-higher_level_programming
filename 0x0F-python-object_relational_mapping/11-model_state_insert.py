@@ -21,7 +21,7 @@ def main(av):
     session.add(s)
     session.commit()
     print(s.id)
-    
+
     session.close()
 
 
