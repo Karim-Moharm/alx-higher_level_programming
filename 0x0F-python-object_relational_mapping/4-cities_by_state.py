@@ -14,8 +14,9 @@ def main(av):
                                 passwd=av[2], db=av[3])
     cursor = dbconnect.cursor()
     query = """
-    SELECT id, cities.name, states.name  
-    FROM cities INNER JOIN states
+    SELECT cities.id, cities.name, states.name
+    FROM cities
+    INNER JOIN states
     ON cities.state_id = states.id
     ORDER BY cities.state_id ASC;
     """
@@ -36,4 +37,3 @@ def main(av):
 
 if __name__ == "__main__":
     main(sys.argv)
-
