@@ -18,12 +18,12 @@ def main(av):
     # creating an instance of Session class
     session = Session()
 
-    query = session.query(State).filter(State.name == av[4]).one()
+    query = session.query(State).filter(State.name == av[4])
 
     if query is None:
         print('Not found')
     else:
-        print("{}".format(query.id))
+        print("{}".format(query[0].id))
 
     session.close()
 
