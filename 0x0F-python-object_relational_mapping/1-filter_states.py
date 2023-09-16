@@ -17,7 +17,7 @@ def main(av):
     SELECT id, name
     FROM states
     # WHERE name LIKE 'N%'
-    WHERE name REGEXP '^[N].*$'
+    # WHERE name REGEXP '^[N].*$'
     ORDER BY id ASC;
     """
 
@@ -29,7 +29,8 @@ def main(av):
         sys.exit(1)
 
     for row in query_rows:
-        print(row)
+        if row[1][0] == 'N':
+            print(row)
 
     cursor.close()
     dbconnect.close()
