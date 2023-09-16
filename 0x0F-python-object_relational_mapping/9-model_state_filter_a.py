@@ -23,6 +23,8 @@ def main(av):
     for row in query:
         print("{}: {}".format(row.id, row.name))
 
+    session.close()
+
 
 if __name__ == "__main__":
     main(sys.argv)
