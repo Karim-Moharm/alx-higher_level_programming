@@ -17,19 +17,20 @@ def main(av):
     query = """
     SELECT id, name
     FROM states
-    WHERE name=%s
     ORDER BY id ASC;
     """
 
     try:
-        cursor.execute(query, (av[4],))
+        cursor.execute(query)
         query_rows = cursor.fetchall()
     except MySQLdb.Error as e:
         dbconnect.close()
         sys.exit(1)
 
+    print(query_rows)
     for row in query_rows:
-        print(row)
+        if row[1] == av[4]:
+            print(row[1])
 
     cursor.close()
     dbconnect.close()
