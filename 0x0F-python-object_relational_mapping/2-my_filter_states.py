@@ -27,7 +27,6 @@ def main(av):
         dbconnect.close()
         sys.exit(1)
 
-    print(query_rows)
     for row in query_rows:
         if row[1] == av[4]:
             print(row[1])
