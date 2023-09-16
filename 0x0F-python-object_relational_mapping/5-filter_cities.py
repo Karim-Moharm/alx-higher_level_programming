@@ -30,10 +30,12 @@ def main(av):
         dbconnect.close()
         sys.exit(1)
 
+    items = list()
     for row in query_rows:
         if row[2] == av[4]:
-            print(row[1], end=', ')
-    print()
+            items.append(row[1])
+
+    print(*items, sep=', ')
 
     cursor.close()
     dbconnect.close()
