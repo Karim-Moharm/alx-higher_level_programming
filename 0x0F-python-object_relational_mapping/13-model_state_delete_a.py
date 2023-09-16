@@ -22,7 +22,8 @@ def main(av):
     rows = session.query(State).filter(State.name.like('%a%'))
     for row in rows:
         session.delete(row)
-        session.commit()
+    session.commit()
+
 
     session.close()
 
