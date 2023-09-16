@@ -19,9 +19,9 @@ def main(av):
     session = Session()
 
     query = session.query(State).filter(State.name == av[4]).\
-            order_by(State.id)
+        order_by(State.id).all()
 
-    if query is None:
+    if not query:
         print('Not found')
     else:
         print("{}".format(query[0].id))
