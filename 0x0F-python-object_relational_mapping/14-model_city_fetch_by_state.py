@@ -17,7 +17,7 @@ def main(av):
     session = Session()
 
     objs = session.query(State, City).filter(State.id == City.state_id).\
-            order_by(City.state_id)
+        order_by(City.id)
 
     for state, city in objs:
         # print(state.name, city.state_id, city.name)
