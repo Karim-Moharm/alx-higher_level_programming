@@ -17,7 +17,7 @@ def main(av):
     query = """
     SELECT id, name
     FROM states
-    WHERE name='{}'
+    WHERE BINARY name='{}'
     """.format(av[4])
 
     try:
