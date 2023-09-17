@@ -29,7 +29,7 @@ def main(av):
 
     for row in query_rows:
         # if row[1] == av[4]:
-        print(row[1])
+        print(row)
 
     cursor.close()
     dbconnect.close()
