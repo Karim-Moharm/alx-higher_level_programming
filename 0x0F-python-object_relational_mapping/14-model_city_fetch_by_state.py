@@ -16,12 +16,12 @@ def main(av):
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    objs = session.query(City, State).filter(State.id == City.state_id).\
+    objs = session.query(State, City).filter(State.id == City.state_id).\
             order_by(City.state_id)
 
-    for obj in objs:
-        print(obj.name, obj.state_id, obj.id)
-
+    for state, city in objs:
+        # print(state.name, city.state_id, city.name)
+        print(f"{state.name}: ({city.id}) {city.name}")
     session.close()
 
 
