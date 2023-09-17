@@ -11,19 +11,19 @@ import sys
 def main(av):
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
                     av[1], av[2], av[3]), pool_pre_ping=True)
-    """
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    objs = session.query(City).order_by(City.state_id)
+    objs = session.query(City, State).filter(State.id == City.state_id).\
+            order_by(City.state_id)
 
-    print(objs)
+    for obj in objs:
+        print(obj.name, obj.state_id, obj.id)
 
     session.close()
-    """
-    print(engine)
+
 
 if __name__ == "__main__":
     main(sys.argv)
