@@ -4,19 +4,23 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from model_state import Base, State
-from model_city impoer Base, City
+from model_city import City
 import sys
 
 
 def main(av):
-    engine = create_engine(f'mysql+mysqldb://{av[1]}:{av[2]}@localhost:3306/
-                            {av[3]}', pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+                    av[1], av[2], av[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    session.close()
+    objs = session.query(City).order_by(City.state_id).all()
+
+    print(obj)
+
+    sessio.close()
 
 
 if __name__ == "__main__":
