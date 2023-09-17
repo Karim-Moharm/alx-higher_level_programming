@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""class definition of a City
+"""
 
 
 from sqlalchemy.ext.declarative import declarative_base

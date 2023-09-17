@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
+"""prints all City objects from the database hbtn_0e_14_usa
+"""
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
@@ -9,6 +10,8 @@ import sys
 
 
 def main(av):
+    """main function
+    """
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
                     av[1], av[2], av[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
