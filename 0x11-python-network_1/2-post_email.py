@@ -4,11 +4,13 @@ with the email as a parameter, and displays the body of the response
 """
 
 
-def main:
+def main(av):
+    """main function
+    """
     import urllib.request
     import urllib.parse
-    url = sys.argv[1]
-    email = sys.argv[2]
+    url = av[1]
+    email = av[2]
 
     data = {'email': email}
     data = urllib.parse.urlencode(data).encode('utf-8')
