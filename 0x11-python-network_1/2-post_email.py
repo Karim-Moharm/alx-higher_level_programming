@@ -4,23 +4,26 @@ with the email as a parameter, and displays the body of the response
 """
 
 
-def main(av):
-    from urllib.request import Request, urlopen
-    from urllib.error import URLError, HTTPError
+def main:
     import urllib.request
+    import urllib.parse
+    url = sys.argv[1]
+    email = sys.argv[2]
 
-    url = av[1]
-    email = av[2]
-    req = urllib.request.Request(url, email)
+    data = {'email': email}
+    data = urllib.parse.urlencode(data).encode('utf-8')
 
     try:
-        with urlopen(url) as resp:
-            resp_body = resp.read().decode('UTF-8')
-            print(resp_body)
-    except URLError as e:
-        print(str(e))
-    except HTTPError as e:
-        print(e.code)
+        with urllib.request.urlopen(url, data=data) as response:
+            utf8_content = response.read().decode('utf-8')
+            print(utf8_content)
+
+    except urllib.error.HTTPError as e:
+        print("HTTP Error: ", e.code)
+    except urllib.error.URLError as e:
+        print("URL Error: ", e.reason)
+    except Exception as e:
+        print("An error: ", str(e))
 
 
 if __name__ == '__main__':
