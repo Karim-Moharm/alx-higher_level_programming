@@ -10,8 +10,8 @@ def main(av):
     import requests
     resp = requests.get(av[1], auth=('user', 'pass'))
 
-    if resp.status_code == 200:
-        print(resp.headers['X-Request-Id'])
+    # if resp.status_code == 200:
+    print(resp.headers['X-Request-Id'])
 
 
 if __name__ == '__main__':
