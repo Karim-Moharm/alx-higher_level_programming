@@ -14,9 +14,9 @@ def main():
     # print(dir(data))
 
     print("Body response:")
-    print("    - type: {}".format(type(data)))
-    print("    - content: {}".format(data))
-    print("    - utf8 content: {}".format(data.decode("UTF-8")))
+    print("\t- type: {}".format(type(data)))
+    print("\t- content: {}".format(data))
+    print("\t- utf8 content: {}".format(data.decode("UTF-8")))
 
 
 if __name__ == "__main__":
