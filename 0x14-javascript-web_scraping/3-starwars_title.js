@@ -5,13 +5,14 @@
  * where the episode number matches a given integer
  * first argument must be movie ID
  */
-request = require('request');
+const request = require('request');
 
-const episode_api = "https://swapi-api.alx-tools.com/api/films/" +
+const episodeApi = 'https://swapi-api.alx-tools.com/api/films/' +
     process.argv[2];
 
-console.log(episode_api);
-
-
-
-
+if (process.argv.length === 3) {
+  request(episodeApi, (error, response, body) => {
+    if (error) throw error;
+    console.log(JSON.parse(body).title);
+  });
+}
