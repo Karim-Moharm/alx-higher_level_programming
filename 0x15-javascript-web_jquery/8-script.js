@@ -8,7 +8,7 @@ $(() => {
     error: () => {
       console.error('error while fetching the data');
     },
-    success: (data) => { // list_movies
+    success: (data) => {
       $.each(data.results, (idx, result) => {
         // $('#list_movies').append(`<li>${result.title}<li/>`);
         $('#list_movies').append(`${result.title} <br>`);
