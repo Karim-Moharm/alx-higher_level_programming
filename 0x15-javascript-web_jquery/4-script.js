@@ -1,10 +1,10 @@
 $(() => {
-  const getHeaderClassColor = $('header').attr('class');
+  const headerClassColor = $('header').attr('class');
   $('#toggle_header').click(() => {
-    if (getHeaderClassColor === 'green') {
+    if (headerClassColor === 'green') {
       $('header').toggleClass('red');
     }
-    if (getHeaderClassColor === 'red') {
+    if (headerClassColor === 'red') {
       $('header').toggleClass('green');
     }
   });
