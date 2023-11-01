@@ -9,7 +9,7 @@ $(() => {
       console.error('error while fetching the data');
     },
     success: (data) => {
-      $('#hello').append(data.hello);
+      $('#hello').html(data.hello);
     }
   });
 });
